@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginWithSocialiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    if(auth()->check()){
+        return view("index");
+    }
+    return view('auth.login');
 });
 
-Route::get("/login-user",function(){
-    return view("welcome");
-});
+
+//Route socialate
+Route::get('authorized/google', [LoginWithSocialiteController::class,'redirectToGoogle']);
+Route::get('authorized/google/callback', [LoginWithSocialiteController::class,'handleGoogleCallback']);
+Route::get('/authorized/twitter', [LoginWithSocialiteController::class,'redirectTotwitter']);
+Route::get('/authorized/twitter/callback', [LoginWithSocialiteController::class,'handletwitterCallback']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('index');
 })->name('dashboard');

@@ -1,11 +1,14 @@
 require('./bootstrap');
 
 require('alpinejs');
-
-
-window.Vue = require('vue');
-import "../css/app.css";
- Vue.component('page-component', require('./components/ContentSection.vue').default);
+import Vue from 'vue';
+import App from './components/App';
+import router from './routes/api.route';
  const app = new Vue({
    el: '#app',
+   router,
+   components:{
+    App
+   },
+
  });

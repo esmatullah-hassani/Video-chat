@@ -21,7 +21,11 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
-            $table->text('profile_photo_path')->nullable();
+            $table->text('photo')->nullable();
+            $table->timestamp('last_seen')->nullable();
+            $table->string('google_id')->nullable();
+            $table->string("twitter_id")->nullable();
+            $table->string('social_path')->nullable();
             $table->timestamps();
         });
     }

@@ -5,7 +5,20 @@
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
+            <div class="flex items-center justify-end mt-4">
+                <a href="{{ url('authorized/google') }}">
+                    <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" >
+                </a>
+                <a href="{{url('/authorized/twitter')}}" class="btn btn-primary">
+                <i class="fab fa-twitter"></i>
+                Sign with Twitter</a>
 
+            </div>
+            <div class="flex items-center justify-center">OR</div>
+            <div class="flex items-center justify-center mt-4">
+            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline bg-blue-400">Register</a>
+
+            </div>
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ session('status') }}

@@ -30,4 +30,15 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'google' => [
+        'client_id' => '816117374666-07krue3t9ehv5sosoh5jf9rhk6dq0h9j.apps.googleusercontent.com',
+        'client_secret' => '5uQYikuLquB4UMp6JpyheY5M',
+        'redirect' => env('APP_URL').'/authorized/google/callback',
+    ],
+    'twitter' => [
+        'client_id' => "169792211493899",
+        'client_secret' => "65f23ff8323aafd2e2de37add3e74988",
+        'redirect' => env('APP_URL').'/authorized/twitter/callback',
+      ],
+
 ];
