@@ -28,7 +28,7 @@ class LoginWithSocialiteController extends Controller
         try {
       
             $user = Socialite::driver('google')->user();
-            $finduser = User::where('google_id', $user->id)->first();
+            $finduser = User::where('google_id', $user->id)->orWhere("email",$user->email)->first();
             if($finduser){
        
                 Auth::login($finduser);
@@ -55,22 +55,22 @@ class LoginWithSocialiteController extends Controller
     }
 
     /**
-     * redirect user from twitter driver
+     * redirect user from facebook driver
      */
-    public function redirectToTwitter()
+    public function redirectToFacebook()
     {
-        return Socialite::driver('twitter')->redirect();
+        return Socialite::driver('facebook')->redirect();
     }
 
     /**
      * create new account if don't exists
      */
-    public function handleTwitterCallback()
+    public function handleFacebookCallback()
     {
         try {
       
-            $user = Socialite::driver('twitter')->user();
-            $finduser = User::where('twitter_id', $user->id)->first();
+            $user = Socialite::driver('facebook')->user();
+            $finduser = User::where('facebook_id', $user->id)->first();
 
             if($finduser){
        
@@ -83,16 +83,16 @@ class LoginWithSocialiteController extends Controller
                 {
 
                     $fileContents = file_get_contents($user->getAvatar());
-                    File::put(public_path('images/avatar') .'/'. $user->getId() . ".jpg", $fileContents);
+                    File::put(public_path('uploads/users/photo') .'/'. $user->getId() . ".jpg", $fileContents);
 
 
                 }
                 $imageUrl = $user->getId() . ".jpg";
                 $newUser = User::create([
                     'name' => $user->name,
-                    'twitter_id'=> $user->id,
-                    'image' => $imageUrl,
-                    'password' => bcrypt('videochat@123'),
+                    'facebook_id'=> $user->id,
+                    'photo' => $imageUrl,
+                    'password' => bcrypt('password@123'),
                 ]);
       
                 Auth::login($newUser);

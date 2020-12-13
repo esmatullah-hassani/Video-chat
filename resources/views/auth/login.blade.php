@@ -3,22 +3,23 @@
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
+        <script  src="{{asset('css/font.js')}}"></script>
 
         <x-jet-validation-errors class="mb-4" />
-            <div class="flex items-center justify-end mt-4">
+            <div class="bg-indigo-500 px-6  text-white text-center font-extrabold rounded-full">
                 <a href="{{ url('authorized/google') }}">
                     <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" >
                 </a>
-                <a href="{{url('/authorized/twitter')}}" class="btn btn-primary">
-                <i class="fab fa-twitter"></i>
-                Sign with Twitter</a>
+            </div>
+            <div class="bg-indigo-500 px-6 py-3 mt-4 mb-4  text-white text-center font-extrabold rounded-full">
+                
+            <a href="{{url('/authorized/facebook')}}" class="btn btn-primary">
+                <i class="fab fa-facebook"></i>
+                Sign with Facebook</a>
 
             </div>
-            <div class="flex items-center justify-center">OR</div>
-            <div class="flex items-center justify-center mt-4 w-12 h-4 rounded-full bg-blue-600">
-            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline bg-blue-400">Register</a>
-
-            </div>
+            <div class="flex items-center justify-center mt-6">OR</div>
+            
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ session('status') }}
@@ -40,22 +41,28 @@
 
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
-                    <input id="remember_me" type="checkbox" class="form-checkbox" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
+                </label>
+            </div>
+            
+            <div class="bg-indigo-500 px-6 py-3 pt-2 mt-4 mb-2  text-white text-center font-extrabold rounded-full">
+                @if (Route::has('password.request'))
+                    
                 @endif
 
-                <x-jet-button class="ml-4">
+                <button type="submit" class="w-full outline-none ">
                     {{ __('Login') }}
-                </x-jet-button>
+                </button>
             </div>
+            <a href="{{ route('register') }}" class="text-sm no-underline ">
+                <div class="">
+                Register
+
+                </div>
+            </a>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>

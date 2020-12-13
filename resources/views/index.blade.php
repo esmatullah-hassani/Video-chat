@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video chat</title>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-    <link rel="stylesheet" href="{{asset('css/font.css')}}">
+    <script  src="{{asset('css/font.js')}}"></script>
 </head>
 <body>
 <div id="app">

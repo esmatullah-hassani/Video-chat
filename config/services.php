@@ -35,10 +35,10 @@ return [
         'client_secret' => '5uQYikuLquB4UMp6JpyheY5M',
         'redirect' => env('APP_URL').'/authorized/google/callback',
     ],
-    'twitter' => [
+    'facebook' => [
         'client_id' => "169792211493899",
         'client_secret' => "65f23ff8323aafd2e2de37add3e74988",
-        'redirect' => env('APP_URL').'/authorized/twitter/callback',
+        'redirect' => env('APP_URL').'/authorized/facebook/callback',
       ],
 
 ];

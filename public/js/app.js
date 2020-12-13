@@ -4093,6 +4093,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _services_api_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services/api.service */ "./resources/js/services/api.service.js");
 //
 //
 //
@@ -4142,8 +4143,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "HeroMenu"
+  name: "HeroMenu",
+  data: function data() {
+    return {
+      services: new _services_api_service__WEBPACK_IMPORTED_MODULE_0__["default"]()
+    };
+  },
+  methods: {
+    logoutUser: function logoutUser() {
+      this.services.logoutUser().then(function (reqponse) {
+        console.log(response);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -22695,7 +22710,7 @@ var staticRenderFns = [
       {
         staticClass:
           "p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block",
-        attrs: { href: "#" }
+        attrs: { href: "/logout" }
       },
       [
         _c("i", { staticClass: "fas fa-sign-out-alt fa-fw" }),
@@ -38655,6 +38670,31 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/environment/request.js":
+/*!*********************************************!*\
+  !*** ./resources/js/environment/request.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
+    baseURL: "http://localhost:8000/api",
+    withCredentials: false,
+    headers: {
+      Accept: "application/json",
+      'Content-Type': 'application/json'
+    }
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/routes/api.route.js":
 /*!******************************************!*\
   !*** ./resources/js/routes/api.route.js ***!
@@ -38684,6 +38724,57 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
+
+/***/ }),
+
+/***/ "./resources/js/services/api.service.js":
+/*!**********************************************!*\
+  !*** ./resources/js/services/api.service.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ApiService; });
+/* harmony import */ var _environment_request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../environment/request */ "./resources/js/environment/request.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var ApiService = /*#__PURE__*/function () {
+  function ApiService() {
+    _classCallCheck(this, ApiService);
+  }
+
+  _createClass(ApiService, [{
+    key: "logoutUser",
+
+    /**
+     * Log out user
+     */
+    value: function logoutUser() {
+      return Object(_environment_request__WEBPACK_IMPORTED_MODULE_0__["default"])().get('/logout').then(function (response) {
+        return response;
+      })["catch"](function (errors) {
+        return errors.response.data.errors;
+      });
+    }
+  }, {
+    key: "getVideo",
+    value: function getVideo() {
+      alert("hello");
+    }
+  }]);
+
+  return ApiService;
+}();
+
+
 
 /***/ }),
 
