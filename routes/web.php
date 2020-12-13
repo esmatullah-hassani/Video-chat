@@ -35,3 +35,4 @@ Route::get("/logout",[UserController::class,'logoutUser']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('index');
 })->name('dashboard');
+
