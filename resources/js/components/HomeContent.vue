@@ -217,7 +217,23 @@
 </template>
 
 <script>
+import ApiService from '../services/api.service'
 export default {
+    name:"HomeContent",
+    data(){
+        return{
+            services:new ApiService(),
+        }
+    },
+    created(){
+        this.services.getVideo()
+            .then((response)=> {
+                console.log(response);
+            })
+            .catch((errors)=>{
+                console.log(errors+" errors");
+            })
+    }
 
 }
 </script>

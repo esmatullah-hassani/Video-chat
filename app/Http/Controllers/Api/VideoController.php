@@ -15,7 +15,8 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //
+        $video = Video::all();
+        return response()->json(['status'=>true,'vidos'=>$video]);
     }
 
     /**

@@ -2,16 +2,13 @@ import request from '../environment/request';
 export default class ApiService{
 
     /**
-     * Log out user
+     * get all video
      */
-    logoutUser(){
+    getVideo(){
         return request()
-            .get('/logout')
+            .get('/get-video')
             .then(response => response)
             .catch(errors => errors.response.data.errors);
     }
 
-    getVideo(){
-        alert("hello");
-    }
 }

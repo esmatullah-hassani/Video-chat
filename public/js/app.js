@@ -3862,6 +3862,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _services_api_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/api.service */ "./resources/js/services/api.service.js");
 //
 //
 //
@@ -4080,7 +4081,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "HomeContent",
+  data: function data() {
+    return {
+      services: new _services_api_service__WEBPACK_IMPORTED_MODULE_0__["default"]()
+    };
+  },
+  created: function created() {
+    this.services.getVideo().then(function (response) {
+      console.log(response);
+    })["catch"](function (errors) {
+      console.log(errors + " errors");
+    });
+  }
+});
 
 /***/ }),
 
@@ -39039,22 +39055,17 @@ var ApiService = /*#__PURE__*/function () {
   }
 
   _createClass(ApiService, [{
-    key: "logoutUser",
+    key: "getVideo",
 
     /**
-     * Log out user
+     * get all video
      */
-    value: function logoutUser() {
-      return Object(_environment_request__WEBPACK_IMPORTED_MODULE_0__["default"])().get('/logout').then(function (response) {
+    value: function getVideo() {
+      return Object(_environment_request__WEBPACK_IMPORTED_MODULE_0__["default"])().get('/get-video').then(function (response) {
         return response;
       })["catch"](function (errors) {
         return errors.response.data.errors;
       });
-    }
-  }, {
-    key: "getVideo",
-    value: function getVideo() {
-      alert("hello");
     }
   }]);
 
