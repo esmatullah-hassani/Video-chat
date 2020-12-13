@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    if(auth()->check()){
-        return view("index");
-    }
+    
     return view('auth.login');
 });
 

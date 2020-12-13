@@ -15,7 +15,7 @@
 
             </div>
             <div class="flex items-center justify-center">OR</div>
-            <div class="flex items-center justify-center mt-4">
+            <div class="flex items-center justify-center mt-4 w-12 h-4 rounded-full bg-blue-600">
             <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline bg-blue-400">Register</a>
 
             </div>

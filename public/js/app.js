@@ -21936,7 +21936,7 @@ var staticRenderFns = [
       [
         _c(
           "div",
-          { staticClass: "bg-blue-800 p-2 shadow text-xl text-white" },
+          { staticClass: "bg-indigo-900 p-2 shadow text-xl text-white" },
           [_c("h3", { staticClass: "font-bold pl-2" }, [_vm._v("Analytics")])]
         ),
         _vm._v(" "),
@@ -22609,7 +22609,7 @@ var render = function() {
                             attrs: { to: "/profiles" }
                           },
                           [
-                            _c("i", { staticClass: "fa fa-user fa-fw" }),
+                            _c("i", { staticClass: "fa fa-user-circle fa-fw" }),
                             _vm._v(" Profile")
                           ]
                         ),
@@ -22912,7 +22912,7 @@ var staticRenderFns = [
       [
         _c(
           "div",
-          { staticClass: "bg-blue-800 p-2 shadow text-xl text-white" },
+          { staticClass: "bg-indigo-900 p-2 shadow text-xl text-white" },
           [_c("h3", { staticClass: "font-bold pl-2" }, [_vm._v("Analytics")])]
         ),
         _vm._v(" "),
