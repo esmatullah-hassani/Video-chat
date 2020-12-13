@@ -31,3 +31,4 @@ Route::get('/authorized/twitter/callback', [LoginWithSocialiteController::class,
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('index');
 })->name('dashboard');
+
